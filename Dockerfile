@@ -25,7 +25,7 @@ USER root
 RUN sysctl -p sysctl.conf && ulimit -n 65535
 
 # install ss
-RUN apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing shadowsocks-libev jq
+RUN apk --no-cache add shadowsocks-libev jq
 
 #install kcp 
 RUN sh install_kcp.sh
