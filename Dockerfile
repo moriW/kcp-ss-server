@@ -26,9 +26,10 @@ RUN sysctl -p sysctl.conf && ulimit -n 65535
 
 # install ss
 # RUN apk --no-cache https://dl-cdn.alpinelinux.org/alpine/latest-stable/ add shadowsocks-libev jq
-RUN apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-	net-tools pwgen bash runit \
-	shadowsocks-libev jq
+RUN apk update \
+    && apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    net-tools pwgen bash runit \
+    shadowsocks-libev jq
 
 #install kcp 
 RUN sh install_kcp.sh
