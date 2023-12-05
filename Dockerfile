@@ -1,5 +1,5 @@
 # Base image to use, this must be set as the first line
-FROM --platform=${TARGETPLATFORM} alpine
+FROM alpine
 ARG TARGETOS
 ARG TARGETARCH
 
@@ -25,7 +25,11 @@ USER root
 RUN sysctl -p sysctl.conf && ulimit -n 65535
 
 # install ss
-RUN apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing shadowsocks-libev jq
+# RUN apk --no-cache https://dl-cdn.alpinelinux.org/alpine/latest-stable/ add shadowsocks-libev jq
+RUN apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+	net-tools pwgen bash runit \
+	shadowsocks-libev jq
+
 
 #install kcp 
 RUN sh install_kcp.sh
