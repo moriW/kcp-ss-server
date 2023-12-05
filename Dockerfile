@@ -30,7 +30,6 @@ RUN apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/te
 	net-tools pwgen bash runit \
 	shadowsocks-libev jq
 
-
 #install kcp 
 RUN sh install_kcp.sh
 
