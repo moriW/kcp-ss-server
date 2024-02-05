@@ -5,6 +5,8 @@ echo $ARCH
 platform="$OS-$ARCH"
 echo $platform
 
+echo $TARGETPLATFORM
+
 echo '----------------------------'
 
 cmd="wget -q -O - https://api.github.com/repos/xtaci/kcptun/releases/latest | jq -r '.assets[].browser_download_url | select(contains(\"$platform\"))'"
@@ -23,7 +25,6 @@ rm client*
 mv server* kcp_server
 
 echo '----------------------------'
-
 
 # url=`wget -q -O - https://api.github.com/repos/xtaci/kcptun/releases/latest | jq -r '.assets[].browser_download_url | select(contains("$OS-$ARCH"))'`
 # echo $url
