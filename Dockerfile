@@ -11,6 +11,13 @@ COPY . .
 
 ENV SS_METHOD=aes-256-gcm \
   SS_PASSWORD=ss-password \
+  KCP_CRYPT=none \
+  KCP_MODE=fast3 \
+  KCP_DS=10 \
+  KCP_PS=3 \
+  KCP_RCVWND=512 \
+  KCP_SNDWND=128 \
+  KCP_MTU=1350 \
   OS=${TARGETOS} \
   ARCH=${TARGETARCH}
 
